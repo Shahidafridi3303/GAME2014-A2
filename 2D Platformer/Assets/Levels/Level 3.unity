@@ -2944,15 +2944,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.56
+      value: 3.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.56
+      value: 3.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.56
+      value: 3.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16230,6 +16230,14 @@ PrefabInstance:
     - target: {fileID: 2766481133942239810, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145500259113122833, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457917882183986360, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8450638278691971723, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Pivot.x

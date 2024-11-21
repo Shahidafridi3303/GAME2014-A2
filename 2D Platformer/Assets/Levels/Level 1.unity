@@ -9736,7 +9736,7 @@ Transform:
   m_GameObject: {fileID: 1649593147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 136.39, y: 2.31, z: -65.6}
+  m_LocalPosition: {x: 24, y: 2.31, z: -65.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13830,6 +13830,14 @@ PrefabInstance:
     - target: {fileID: 2766481133942239810, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145500259113122833, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457917882183986360, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8450638278691971723, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Pivot.x
