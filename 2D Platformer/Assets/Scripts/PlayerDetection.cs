@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerDetection : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if (bIsSensing)
         {
-            RaycastHit2D hit = Physics2D.Linecast(transform.position, player.transform.position, layerMask);
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, player.transform.position  + new Vector3(0, 4.0f, 0), layerMask);
             Vector2 playerDirection = player.transform.position - transform.position;
             float playerDirectionValue = (playerDirection.x > 0) ? 1 : -1;
             float enemyLookingDirection = (transform.parent.localScale.x > 0) ? -1 : 1;
@@ -43,7 +44,7 @@ public class PlayerDetection : MonoBehaviour
 
         if (bIsSensing)
         {
-            Debug.DrawLine(transform.position, player.transform.position, color);
+            Debug.DrawLine(transform.position, player.transform.position + new Vector3(0, 4.0f, 0), color);
         }
     }
 
