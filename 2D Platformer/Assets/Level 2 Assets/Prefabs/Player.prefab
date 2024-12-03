@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 62434683696048163}
   - component: {fileID: 4119901030263867588}
   - component: {fileID: 4906469875736882186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -163,13 +163,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalForce: 50
-  verticalForce: 3
+  verticalForce: 5
   groundingTransformPoint: {fileID: 1253245698725806472}
-  groundingRadius: 1.5
+  groundingRadius: 1.4
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  horizontalSpeedLimit: 5
+  horizontalSpeedLimit: 8
   airSpeedFactor: 0.8
   leftJoystickVerticalThreshold: 0.7
 --- !u!1 &7179215238616560736
