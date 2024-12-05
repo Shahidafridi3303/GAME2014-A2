@@ -30,11 +30,19 @@ public class PlayerDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             bIsSensing = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            bIsSensing = false;
         }
     }
 
@@ -51,5 +59,10 @@ public class PlayerDetection : MonoBehaviour
     public bool GetLOSStatus()
     {
         return bHasLOS;
+    }
+
+    public bool GetSensingStatus()
+    {
+        return bIsSensing;
     }
 }

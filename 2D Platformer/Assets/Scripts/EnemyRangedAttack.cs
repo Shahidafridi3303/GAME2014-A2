@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRangedAttack : MonoBehaviour
 {
-    [SerializeField] private int fireDelay = 30;
+    [SerializeField] private int fireDelay = 60;
     [SerializeField] private GameObject bulletGameObject;
 
     private PlayerDetection playerDetection;

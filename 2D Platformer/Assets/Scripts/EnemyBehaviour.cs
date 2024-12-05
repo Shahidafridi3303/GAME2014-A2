@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour, IDamage
 {
-    [SerializeField] private float speed = 0.1f;
+    [SerializeField] private float speed = 0.05f;
     [SerializeField] private Transform baseCenterPoint;
     [SerializeField] private Transform frontGroundPoint;
     [SerializeField] private Transform frontObstaclePoint;
