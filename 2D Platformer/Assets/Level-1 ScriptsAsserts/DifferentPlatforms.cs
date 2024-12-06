@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlatformBehavior : MonoBehaviour
+public class DifferentPlatforms : MonoBehaviour
 {
     public enum PlatformType
     {
