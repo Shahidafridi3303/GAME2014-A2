@@ -7,16 +7,17 @@ public class BulletBehaviour : MonoBehaviour, IDamage
 {
     [SerializeField] private float bulletForce = 10.0f;
     [SerializeField] private int damage = 5;
+    [SerializeField] private float projectileLifetime = 3.0f;
+    [SerializeField] private float addedForceCooldown = 1.0f;
 
     private Rigidbody2D rigidBody2D;
-    private float addedForceCooldown = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         AddForceToProjectile();
-        Invoke("DestroyBullet", 3.0f);
+        Invoke("DestroyBullet", projectileLifetime);
     }
 
     private void Update()
