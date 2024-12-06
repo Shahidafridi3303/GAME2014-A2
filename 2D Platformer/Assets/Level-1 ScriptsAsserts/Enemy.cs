@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 50; // Maximum health
-    [SerializeField] private Slider healthBar;   // Reference to health bar UI
+    [SerializeField] private Slider healthBar;   // Reference to health bar UI3
     private int currentHealth;
 
     private Transform playerTransform;
@@ -137,9 +137,6 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-        // Simulate damage after a short delay
-        Invoke(nameof(DealDamage), 0.5f);
-
         // End attack after the animation finishes
         StartCoroutine(EndAttackAfterDuration(1f)); // Adjust duration to match the attack animation
     }
@@ -152,18 +149,6 @@ public class Enemy : MonoBehaviour
         isAttacking = false; // Allow other behaviors
         animator.SetBool("isAttacking", false); // End attack animation
     }
-
-
-    private void DealDamage()
-    {
-        if (playerTransform && Vector2.Distance(transform.position, playerTransform.position) <= attackRange)
-        {
-            playerTransform.GetComponent<PlayerHealth>()?.TakeDamage(attackDamage);
-        }
-
-        isAttacking = false; // Allow other animations after the attack
-    }
-
 
     private void OnDrawGizmos()
     {
@@ -204,7 +189,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(10); // Deal damage to the player
+            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(attackDamage);
+            TakeDamage(attackDamage);
         }
     }
 }

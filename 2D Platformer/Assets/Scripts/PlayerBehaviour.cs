@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Animation Settings")]
     private Animator animator;
     private enum AnimationStates { IDLE, RUN, JUMP, FALL }
-    private float deathlyFallSpeed = 5.0f;
+    //private float deathlyFallSpeed = 5.0f;
 
     [Header("UI and Joystick")]
     private Joystick leftJoystick;
@@ -102,28 +102,28 @@ public class PlayerBehaviour : MonoBehaviour
         animator.SetBool("IsGrounded", bIsGrounded);
         animator.SetFloat("VerticalVelocity", verticalSpeed);
 
-        if (bIsGrounded)
-        {
-            if (horizontalSpeed > 0.1f)
-            {
-                animator.SetInteger("state", (int)AnimationStates.RUN);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.IDLE);
-            }
-        }
-        else
-        {
-            if (verticalSpeed > 0)
-            {
-                animator.SetInteger("state", (int)AnimationStates.JUMP);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.FALL);
-            }
-        }
+        //if (bIsGrounded)
+        //{
+        //    if (horizontalSpeed > 0.1f)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.RUN);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.IDLE);
+        //    }
+        //}
+        //else
+        //{
+        //    if (verticalSpeed > 0)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.JUMP);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.FALL);
+        //    }
+        //}
     }
 
 
@@ -190,8 +190,8 @@ public class PlayerBehaviour : MonoBehaviour
             rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
 
             // Apply damage from the enemy
-            int damage = collision.GetComponent<IDamage>()?.Damage() ?? 10;
-            GetComponent<PlayerHealth>().TakeDamage(damage);
+            collision.GetComponent<Enemy>().TakeDamage(10);
+            GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }
 }
