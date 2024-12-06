@@ -20,10 +20,16 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Animation Settings")]
     private Animator animator;
     private enum AnimationStates { IDLE, RUN, JUMP, FALL }
-    private float deathlyFallSpeed = 5.0f;
+    //private float deathlyFallSpeed = 5.0f;
 
     [Header("UI and Joystick")]
     private Joystick leftJoystick;
+
+    [Header("Attack Settings")]
+    [SerializeField] private float attackRange = 1.5f; // Range of the attack
+    [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
+    [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
+    private bool isAttacking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
@@ -50,6 +56,40 @@ public class PlayerBehaviour : MonoBehaviour
 
         // Handle animations
         AnimationStateControl();
+
+        if (Input.GetButtonDown("Fire1") && !isAttacking) // Replace "Fire1" with your input setup
+        {
+            Attack();
+        }
+    }
+
+    private void Attack()
+    {
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+
+        // Detect enemies within range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>()?.TakeDamage(attackDamage);
+        }
+
+        // Reset attack state after animation
+        Invoke(nameof(ResetAttack), 0.5f); // Adjust duration to match attack animation
+    }
+
+    private void ResetAttack()
+    {
+        isAttacking = false;
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualize the attack range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
     void AnimationStateControl()
@@ -62,28 +102,28 @@ public class PlayerBehaviour : MonoBehaviour
         animator.SetBool("IsGrounded", bIsGrounded);
         animator.SetFloat("VerticalVelocity", verticalSpeed);
 
-        if (bIsGrounded)
-        {
-            if (horizontalSpeed > 0.1f)
-            {
-                animator.SetInteger("state", (int)AnimationStates.RUN);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.IDLE);
-            }
-        }
-        else
-        {
-            if (verticalSpeed > 0)
-            {
-                animator.SetInteger("state", (int)AnimationStates.JUMP);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.FALL);
-            }
-        }
+        //if (bIsGrounded)
+        //{
+        //    if (horizontalSpeed > 0.1f)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.RUN);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.IDLE);
+        //    }
+        //}
+        //else
+        //{
+        //    if (verticalSpeed > 0)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.JUMP);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.FALL);
+        //    }
+        //}
     }
 
 
@@ -136,6 +176,12 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundingTransformPoint.position, groundingRadius);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -143,14 +189,9 @@ public class PlayerBehaviour : MonoBehaviour
             Vector3 damageTakenDirection = Vector2.up;
             rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
 
-            // Placeholder for damage system
-            // healthBarController.TakeDamage(collision.GetComponent<IDamage>().Damage());
+            // Apply damage from the enemy
+            collision.GetComponent<Enemy>().TakeDamage(10);
+            GetComponent<PlayerHealth>().TakeDamage(10);
         }
-    }
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(groundingTransformPoint.position, groundingRadius);
     }
 }
