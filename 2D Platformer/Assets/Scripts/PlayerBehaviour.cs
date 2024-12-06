@@ -1,34 +1,43 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour: MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float horizontalForce;
     [SerializeField] private float verticalForce;
+    [SerializeField] private float horizontalSpeedLimit;
+    [SerializeField][Range(0, 1.0f)] private float airSpeedFactor;
+
+    [Header("Grounding Settings")]
     [SerializeField] private Transform groundingTransformPoint;
     [SerializeField] private float groundingRadius;
     [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] private float horizontalSpeedLimit;
-    [SerializeField] [Range(0, 1.0f)] private float airSpeedFactor;
-    [SerializeField] [Range(0, 1.0f)] private float leftJoystickVerticalThreshold; // for joystick jump
+
+    [Header("Joystick Settings")]
+    [SerializeField][Range(0, 1.0f)] private float leftJoystickVerticalThreshold; // for joystick jump
+
+    [Header("Animation Settings")]
+    private Animator animator;
+    private enum AnimationStates { IDLE, RUN, JUMP, FALL }
+    //private float deathlyFallSpeed = 5.0f;
+
+    [Header("UI and Joystick")]
+    private Joystick leftJoystick;
+
+    [Header("Attack Settings")]
+    [SerializeField] private float attackRange = 1.5f; // Range of the attack
+    [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
+    [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
+    private bool isAttacking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
-    private float deathlyFallSpeed = 5.0f;
 
-    private Joystick leftJoystick;
-    private Animator animator;
-
-    //private HealthBarController healthBarController;
-
-    // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
-        //healthBarController = GetComponentInChildren<HealthBarController>();
+        animator = GetComponent<Animator>();
 
         if (GameObject.Find("GameUIPanel"))
         {
@@ -36,45 +45,87 @@ public class PlayerBehaviour: MonoBehaviour
         }
     }
 
-    void Update()
-    {
-       
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
+        // Check if player is grounded
         bIsGrounded = Physics2D.OverlapCircle(groundingTransformPoint.position, groundingRadius, groundLayerMask);
+
+        // Handle movement and jumping
         Move();
         Jump();
-        //AnimationStateControl();
+
+        // Handle animations
+        AnimationStateControl();
+
+        if (Input.GetButtonDown("Fire1") && !isAttacking) // Replace "Fire1" with your input setup
+        {
+            Attack();
+        }
     }
 
-    private void AnimationStateControl()
+    private void Attack()
     {
-        if (bIsGrounded)
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+
+        // Detect enemies within range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
         {
-            if (Mathf.Abs(rigidBody2D.velocity.x) > 0.2f)
-            {
-                animator.SetInteger("state", (int)AnimationStates.RUN);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.IDLE);
-            }
+            enemy.GetComponent<Enemy>()?.TakeDamage(attackDamage);
         }
-        else
-        {
-            if (Mathf.Abs(rigidBody2D.velocity.y) > deathlyFallSpeed)
-            {
-                animator.SetInteger("state", (int)AnimationStates.FALL);
-            }
-            else
-            {
-                animator.SetInteger("state", (int)AnimationStates.JUMP);
-            }
-        }
+
+        // Reset attack state after animation
+        Invoke(nameof(ResetAttack), 0.5f); // Adjust duration to match attack animation
     }
+
+    private void ResetAttack()
+    {
+        isAttacking = false;
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualize the attack range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    void AnimationStateControl()
+    {
+        float horizontalSpeed = Mathf.Abs(rigidBody2D.velocity.x);
+        float verticalSpeed = rigidBody2D.velocity.y;
+
+        // Set Animator parameters
+        animator.SetFloat("Speed", horizontalSpeed);
+        animator.SetBool("IsGrounded", bIsGrounded);
+        animator.SetFloat("VerticalVelocity", verticalSpeed);
+
+        //if (bIsGrounded)
+        //{
+        //    if (horizontalSpeed > 0.1f)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.RUN);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.IDLE);
+        //    }
+        //}
+        //else
+        //{
+        //    if (verticalSpeed > 0)
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.JUMP);
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("state", (int)AnimationStates.FALL);
+        //    }
+        //}
+    }
+
 
     private void Move()
     {
@@ -83,22 +134,29 @@ public class PlayerBehaviour: MonoBehaviour
         if (leftJoystick != null)
         {
             xInput = leftJoystick.Horizontal;
-            Debug.Log(leftJoystick.Horizontal + "-" + leftJoystick.Vertical);
         }
 
-        if (xInput != 0.0f)
+        if (Math.Abs(xInput) > 0.01f)
         {
             Vector2 force = Vector2.right * xInput * horizontalForce;
+
+            // Adjust speed in the air
             if (!bIsGrounded)
             {
                 force = new Vector2(force.x * airSpeedFactor, force.y);
             }
 
+            // Apply force and flip sprite
             rigidBody2D.AddForce(force);
-            GetComponent<SpriteRenderer>().flipX = (force.x <= 0.0f);
-            if(Math.Abs(rigidBody2D.velocity.x) > horizontalSpeedLimit) // clamp horizontal velocity
+            GetComponent<SpriteRenderer>().flipX = (force.x < 0);
+
+            // Clamp horizontal velocity
+            if (Mathf.Abs(rigidBody2D.velocity.x) > horizontalSpeedLimit)
             {
-                rigidBody2D.velocity = new Vector2(Mathf.Clamp(rigidBody2D.velocity.x, -horizontalSpeedLimit, horizontalSpeedLimit), rigidBody2D.velocity.y);
+                rigidBody2D.velocity = new Vector2(
+                    Mathf.Clamp(rigidBody2D.velocity.x, -horizontalSpeedLimit, horizontalSpeedLimit),
+                    rigidBody2D.velocity.y
+                );
             }
         }
     }
@@ -118,19 +176,22 @@ public class PlayerBehaviour: MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            Vector3 damageTakenDirection = Vector2.up; //transform.position - collision.transform.position;
-            rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
-            //healthBarController.TakeDamage(collision.GetComponent<IDamage>().Damage());
-        }
-    }
-
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundingTransformPoint.position, groundingRadius);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Vector3 damageTakenDirection = Vector2.up;
+            rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
+
+            // Apply damage from the enemy
+            collision.GetComponent<Enemy>().TakeDamage(10);
+            GetComponent<PlayerHealth>().TakeDamage(10);
+        }
     }
 }
