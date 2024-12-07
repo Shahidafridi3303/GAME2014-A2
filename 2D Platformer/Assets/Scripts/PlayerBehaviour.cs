@@ -190,7 +190,7 @@ public class PlayerBehaviour : MonoBehaviour
             rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
 
             // Apply damage from the enemy
-            collision.GetComponent<Enemy>().TakeDamage(10);
+            //collision.GetComponent<Enemy>().TakeDamage(10);
             GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }

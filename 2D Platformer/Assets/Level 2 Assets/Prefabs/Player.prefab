@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 1519816515218393289}
   - component: {fileID: 62434683696048163}
   - component: {fileID: 4119901030263867588}
+  - component: {fileID: 7471887411862148721}
   - component: {fileID: 4906469875736882186}
+  - component: {fileID: 7639340288355371794}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -30,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45.48, y: -85.06, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1.766627, y: 2.1199524, z: 1.766627}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1253245698725806472}
@@ -150,6 +152,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7471887411862148721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913743662302457199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03dbbbfb515394649953d4ce73b7fd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthBar: {fileID: 0}
+  damageCooldown: 1
+  healthBarSmoothSpeed: 2
 --- !u!114 &4906469875736882186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,14 +182,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalForce: 50
   verticalForce: 5
+  horizontalSpeedLimit: 8
+  airSpeedFactor: 0.8
   groundingTransformPoint: {fileID: 1253245698725806472}
-  groundingRadius: 1.4
+  groundingRadius: 0.21
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  horizontalSpeedLimit: 8
-  airSpeedFactor: 0.8
   leftJoystickVerticalThreshold: 0.7
+  attackRange: 1.5
+  attackDamage: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!95 &7639340288355371794
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913743662302457199}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75702cdc48eba5c48bd95bbafe99f7be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7179215238616560736
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,9 +241,9 @@ Transform:
   m_GameObject: {fileID: 7179215238616560736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.073, y: 0.373, z: 0}
+  m_LocalPosition: {x: -0.073, y: 0.089, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1246677479237586708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

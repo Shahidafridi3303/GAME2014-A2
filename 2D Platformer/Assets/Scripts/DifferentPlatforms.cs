@@ -21,7 +21,7 @@ public class DifferentPlatforms : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
 
     [Header("Bouncing Platform Settings")]
-    [SerializeField] private float bounceForce = 10f;
+    [SerializeField] private float bounceForce = 5f;
 
     [Header("Collapsing Platform Settings")]
     [SerializeField] private float collapseDelay = 1f;
