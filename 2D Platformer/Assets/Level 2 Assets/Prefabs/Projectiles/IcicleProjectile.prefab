@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5854578543389219288}
   m_Layer: 0
   m_Name: IcicleProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletForce: 10
   damage: 5
+  projectileLifetime: 3
+  addedForceCooldown: 1
 --- !u!50 &-5854578543389219288
 Rigidbody2D:
   serializedVersion: 4

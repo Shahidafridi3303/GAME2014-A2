@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81b2ac27d67f0104da509a884176e1a3
+guid: 530b9e3a198558046a5198e7f7dd619c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,106 +149,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icicleProjectile_0
+      name: icicle2_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 1124
-        width: 304
-        height: 145
+        x: 117
+        y: 226
+        width: 154
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a61e51e3a32d644fad372f321ccd947
-      internalID: -1014098217
+      spriteID: b82698c83d4795949adfe6dd1469aeed
+      internalID: 1324279680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicleProjectile_1
+      name: icicle2_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 873
-        width: 299
-        height: 151
+        x: 365
+        y: 242
+        width: 158
+        height: 293
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f718151b57262c499f39536fc98cb65
-      internalID: 59829847
+      spriteID: e3ec69927ac796742a044418deee7052
+      internalID: 1217257358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicleProjectile_2
+      name: icicle2_2
       rect:
         serializedVersion: 2
-        x: 166
-        y: 595
-        width: 297
-        height: 158
+        x: 630
+        y: 238
+        width: 157
+        height: 296
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd8a1587b4ea9bc4fab756c639ce2ed1
-      internalID: -1732275332
+      spriteID: c85387841e9fdd54588bbda005334353
+      internalID: -1277516932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicleProjectile_3
+      name: icicle2_3
       rect:
         serializedVersion: 2
-        x: 165
-        y: 330
-        width: 294
-        height: 159
+        x: 908
+        y: 232
+        width: 133
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a51f3fa07e38314f8a60e44cb22db19
-      internalID: 1969462575
+      spriteID: 356f5f937a6a04f4a8dea67d42f489df
+      internalID: -813814858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicleProjectile_4
+      name: icicle2_4
       rect:
         serializedVersion: 2
-        x: 176
-        y: 82
-        width: 299
-        height: 155
+        x: 1173
+        y: 234
+        width: 144
+        height: 303
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f3729b3b76e969498d4a27ed38ac1e4
-      internalID: -1435137358
+      spriteID: bf0c39bac55e910499dae36eb18aa08c
+      internalID: 928946845
       vertices: []
       indices: 
       edges: []
@@ -264,11 +264,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icicleProjectile_0: -1014098217
-      icicleProjectile_1: 59829847
-      icicleProjectile_2: -1732275332
-      icicleProjectile_3: 1969462575
-      icicleProjectile_4: -1435137358
+      icicle2_0: 1324279680
+      icicle2_1: 1217257358
+      icicle2_2: -1277516932
+      icicle2_3: -813814858
+      icicle2_4: 928946845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

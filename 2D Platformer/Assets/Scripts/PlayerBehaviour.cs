@@ -3,36 +3,46 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float horizontalForce;
+    [Header("Movement Settings")] [SerializeField]
+    private float horizontalForce;
+
     [SerializeField] private float verticalForce;
     [SerializeField] private float horizontalSpeedLimit;
-    [SerializeField][Range(0, 1.0f)] private float airSpeedFactor;
+    [SerializeField] [Range(0, 1.0f)] private float airSpeedFactor;
 
-    [Header("Grounding Settings")]
-    [SerializeField] private Transform groundingTransformPoint;
+    [Header("Grounding Settings")] [SerializeField]
+    private Transform groundingTransformPoint;
+
     [SerializeField] private float groundingRadius;
     [SerializeField] private LayerMask groundLayerMask;
 
-    [Header("Joystick Settings")]
-    [SerializeField][Range(0, 1.0f)] private float leftJoystickVerticalThreshold; // for joystick jump
+    [Header("Joystick Settings")] [SerializeField] [Range(0, 1.0f)]
+    private float leftJoystickVerticalThreshold; // for joystick jump
 
-    [Header("Animation Settings")]
-    private Animator animator;
-    private enum AnimationStates { IDLE, RUN, JUMP, FALL }
+    [Header("Animation Settings")] private Animator animator;
+
+    private enum AnimationStates
+    {
+        IDLE,
+        RUN,
+        JUMP,
+        FALL
+    }
     //private float deathlyFallSpeed = 5.0f;
 
-    [Header("UI and Joystick")]
-    private Joystick leftJoystick;
+    [Header("UI and Joystick")] private Joystick leftJoystick;
 
-    [Header("Attack Settings")]
-    [SerializeField] private float attackRange = 1.5f; // Range of the attack
+    [Header("Attack Settings")] [SerializeField]
+    private float attackRange = 1.5f; // Range of the attack
+
     [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
     private bool isAttacking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
+
+    [SerializeField] private GameObject iceWallGameObject;
 
     void Start()
     {
@@ -42,6 +52,21 @@ public class PlayerBehaviour : MonoBehaviour
         if (GameObject.Find("GameUIPanel"))
         {
             leftJoystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!transform.GetComponent<SpriteRenderer>().flipX)
+            {
+                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
+            }
         }
     }
 
