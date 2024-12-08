@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2051744525213862025}
   m_Layer: 0
   m_Name: IceWallAbility
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07592821, y: -0.056945324}
+  m_Offset: {x: 0.0021033287, y: -0.037436962}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -177,5 +177,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.948812, y: 12.296054}
+  m_Size: {x: 12.104875, y: 12.335071}
   m_EdgeRadius: 0

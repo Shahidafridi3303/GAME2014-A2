@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Joystick Settings")] [SerializeField] [Range(0, 1.0f)]
     private float leftJoystickVerticalThreshold; // for joystick jump
 
-    [Header("Animation Settings")] private Animator animator;
+    [Header("Animation Settings")] 
+    private Animator animator;
+
+    [Header("Buttons for Player Actions/Attacks")] 
+    [SerializeField] private Button iceWallAbilityButton;
 
     private enum AnimationStates
     {
@@ -57,17 +62,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!transform.GetComponent<SpriteRenderer>().flipX)
-            {
-                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if (!transform.GetComponent<SpriteRenderer>().flipX)
+        //    {
+        //        Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
+        //    }
+        //    else
+        //    {
+        //        Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
+        //    }
+        //}
     }
 
     void FixedUpdate()
@@ -88,7 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void Attack()
+    public void Attack()
     {
         isAttacking = true;
         animator.SetBool("isAttacking", true);
@@ -220,4 +225,18 @@ public class PlayerBehaviour : MonoBehaviour
             GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }
+
+    public void IceWallAbility()
+    {
+        if (!transform.GetComponent<SpriteRenderer>().flipX)
+        {
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
+        }
+    }
+
+
 }
