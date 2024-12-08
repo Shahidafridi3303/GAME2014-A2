@@ -20,7 +20,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FindObjectOfType<DeathPlane>().UpdateSpawnPosition(transform.position);
+            FindObjectOfType<DeadPlane>().UpdateSpawnPosition(transform.position);
         }
     }
 }

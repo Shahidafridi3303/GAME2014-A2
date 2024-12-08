@@ -198,6 +198,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (jumpPressed > leftJoystickVerticalThreshold && bIsGrounded)
         {
             rigidBody2D.AddForce(Vector2.up * verticalForce, ForceMode2D.Impulse);
+            //SoundManager.instance.PlayPlayerJumpSound();
         }
     }
 
@@ -215,7 +216,7 @@ public class PlayerBehaviour : MonoBehaviour
             rigidBody2D.AddForce(damageTakenDirection * 5, ForceMode2D.Impulse);
 
             // Apply damage from the enemy
-            collision.GetComponent<Enemy>().TakeDamage(10);
+            //collision.GetComponent<Enemy>().TakeDamage(10);
             GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }
