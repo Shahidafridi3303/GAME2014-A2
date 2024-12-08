@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class DeathPlane : MonoBehaviour
+public class DeadPlane : MonoBehaviour
 {
-    private Vector3 spawnPosition = new Vector3(0, 5, 0);
+    public Vector3 _spawnPosition = new Vector3(-119, -342, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,12 @@ public class DeathPlane : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.position = spawnPosition;
+            collision.transform.position = _spawnPosition;
         }
     }
 
     public void UpdateSpawnPosition(Vector3 checkpoint)
     {
-        spawnPosition = checkpoint;
+        _spawnPosition = checkpoint;
     }
 }

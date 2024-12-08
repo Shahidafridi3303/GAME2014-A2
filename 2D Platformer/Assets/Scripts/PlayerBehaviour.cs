@@ -173,6 +173,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (jumpPressed > leftJoystickVerticalThreshold && bIsGrounded)
         {
             rigidBody2D.AddForce(Vector2.up * verticalForce, ForceMode2D.Impulse);
+            //SoundManager.instance.PlayPlayerJumpSound();
         }
     }
 

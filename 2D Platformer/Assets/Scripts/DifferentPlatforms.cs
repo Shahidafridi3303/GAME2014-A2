@@ -25,6 +25,7 @@ public class DifferentPlatforms : MonoBehaviour
 
     [Header("Collapsing Platform Settings")]
     [SerializeField] private float collapseDelay = 1f;
+    [SerializeField] private float resetDelay = 3f;
 
     [Header("Swinging Platform Settings")]
     [SerializeField] private float swingSpeed = 2f;
@@ -38,6 +39,8 @@ public class DifferentPlatforms : MonoBehaviour
 
     void Start()
     {
+        startPosition = transform.position;
+
         if (platformType == PlatformType.Moving)
         {
             startPosition = transform.position;
@@ -123,7 +126,18 @@ public class DifferentPlatforms : MonoBehaviour
     private void Collapse()
     {
         rb.bodyType = RigidbodyType2D.Dynamic; // Make the platform fall
-        Destroy(gameObject, 2f); // Destroy platform after 2 seconds
+        StartCoroutine(ResetPlatform());
+    }
+
+    private IEnumerator ResetPlatform()
+    {
+        // Wait for the reset delay
+        yield return new WaitForSeconds(resetDelay);
+
+        // Reset the platform's position and make it static again
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.velocity = Vector2.zero; // Stop any residual velocity
+        transform.position = startPosition;
     }
 
     // Swinging Platform Logic
