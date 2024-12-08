@@ -7,6 +7,7 @@ public class DifferentPlatforms : MonoBehaviour
     {
         Static,
         Moving,
+        MoveWithBounce,
         Bouncing,
         Collapsing,
         Swinging
@@ -41,7 +42,7 @@ public class DifferentPlatforms : MonoBehaviour
     {
         startPosition = transform.position;
 
-        if (platformType == PlatformType.Moving)
+        if (platformType == PlatformType.Moving || platformType == PlatformType.MoveWithBounce)
         {
             startPosition = transform.position;
         }
@@ -65,11 +66,32 @@ public class DifferentPlatforms : MonoBehaviour
             case PlatformType.Moving:
                 HandleMovingPlatform();
                 break;
+            case PlatformType.MoveWithBounce:
+                HandleMoveWithBouncePlatform();
+                break;
             case PlatformType.Swinging:
                 HandleSwingingPlatform();
                 break;
         }
     }
+
+    private void HandleMoveWithBouncePlatform()
+    {
+        // Moving logic
+        if (movingForward)
+        {
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(startPosition, transform.position) >= moveDistance)
+                movingForward = false;
+        }
+        else
+        {
+            transform.Translate(-moveDirection * moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(startPosition, transform.position) <= 0.1f)
+                movingForward = true;
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -82,6 +104,29 @@ public class DifferentPlatforms : MonoBehaviour
                     break;
                 case PlatformType.Collapsing:
                     HandleCollapsingPlatform();
+                    break;
+                case PlatformType.Moving:
+                    collision.transform.SetParent(transform);
+                    break;
+                case PlatformType.MoveWithBounce:
+                    collision.transform.SetParent(transform);
+                    HandleBouncingPlatform(collision);
+                    break;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            switch (platformType)
+            {
+                case PlatformType.Moving:
+                    collision.transform.SetParent(null);
+                    break;
+                case PlatformType.MoveWithBounce:
+                    collision.transform.SetParent(null);
                     break;
             }
         }
