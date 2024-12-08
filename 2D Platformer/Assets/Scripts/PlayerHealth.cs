@@ -10,9 +10,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float healthBarSmoothSpeed = 2f; // Speed of smooth health bar update
     private int currentHealth;
     private bool canTakeDamage = true; // Cooldown flag
+    DeadPlane deadPlane;
 
     void Start()
     {
+        deadPlane =  FindObjectOfType<DeadPlane>();
+
         currentHealth = maxHealth;
         UpdateHealthBar(1f); // Initialize health bar
     }
@@ -49,14 +52,30 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player Died");
-        // Trigger death animation
-        GetComponent<Animator>().SetTrigger("die");
 
-        // Disable player controls
-        GetComponent<PlayerBehaviour>().enabled = false;
+        // Reset position using DeadPlane
+        transform.position = deadPlane._spawnPosition;
 
-        // Add Game Over logic here (e.g., restart level or show game over screen)
+        // Start a delayed health reset
+        StartCoroutine(ResetHealthAfterDelay());
     }
+
+    private IEnumerator ResetHealthAfterDelay()
+    {
+        // Wait for 0.8 seconds before resetting health
+        yield return new WaitForSeconds(0.8f);
+
+        // Reset health to 50%
+        currentHealth = maxHealth / 2;
+
+        // Update health bar
+        float healthNormalized = (float)currentHealth / maxHealth;
+        StartCoroutine(UpdateHealthBarSmooth(healthNormalized));
+
+        Debug.Log("Health reset to 50% after respawn");
+    }
+
+
 
     private IEnumerator UpdateHealthBarSmooth(float targetValue)
     {

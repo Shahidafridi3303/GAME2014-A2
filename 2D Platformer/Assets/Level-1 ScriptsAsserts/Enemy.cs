@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Coin Drop Settings")]
+    [SerializeField] private GameObject coinPrefab; 
+    [SerializeField] private int coinValue = 1;
+    [SerializeField] private int coinAmount = 5;
+    [SerializeField] private float scatterRadius = 1.5f;
+    [SerializeField] private int ScatterForce = 25;
+
     [Header("Patrol Settings")]
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float patrolDistance = 3f;
@@ -220,8 +227,34 @@ public class Enemy : MonoBehaviour
         isDead = true;
         Debug.Log("Enemy Died");
         GetComponent<Animator>().SetTrigger("die");
-        Destroy(gameObject, 0.6f);
+
+        // Scatter coins
+        ScatterCoins();
+
+        Destroy(gameObject, 0.6f); // Delay destruction to allow death animation to play
     }
+
+    private void ScatterCoins()
+    {
+        for (int i = 0; i < coinAmount; i++)
+        {
+            Vector2 spawnPosition = (Vector2)transform.position + UnityEngine.Random.insideUnitCircle * scatterRadius;
+
+            GameObject coin = Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+
+            // Apply a random upward and outward force
+            Rigidbody2D coinRb = coin.GetComponent<Rigidbody2D>();
+            if (coinRb != null)
+            {
+                Vector2 randomForce = new Vector2(UnityEngine.Random.Range(-ScatterForce, ScatterForce), UnityEngine.Random.Range(ScatterForce, ScatterForce)); // Random force
+                coinRb.AddForce(randomForce, ForceMode2D.Impulse);
+            }
+
+            coin.GetComponent<Coin>()?.SetValue(coinValue);
+        }
+    }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
