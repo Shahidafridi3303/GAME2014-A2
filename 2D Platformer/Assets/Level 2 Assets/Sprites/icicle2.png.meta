@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7232b31e616c078469a40acf6d12ce36
+guid: 530b9e3a198558046a5198e7f7dd619c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -121,6 +108,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -149,211 +149,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: icicle2_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 0
-        width: 27
-        height: 70
+        x: 117
+        y: 226
+        width: 154
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e02f71b57670074faf0b556fdd6a072
-      internalID: -387308418
+      spriteID: b82698c83d4795949adfe6dd1469aeed
+      internalID: 1324279680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: icicle2_1
       rect:
         serializedVersion: 2
-        x: 171
-        y: 0
-        width: 38
-        height: 69
+        x: 365
+        y: 242
+        width: 158
+        height: 293
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebd629d9c704ccf4e8896fae9b970b0a
-      internalID: 513213269
+      spriteID: e3ec69927ac796742a044418deee7052
+      internalID: 1217257358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: icicle2_2
       rect:
         serializedVersion: 2
-        x: 297
-        y: 0
-        width: 34
-        height: 69
+        x: 630
+        y: 238
+        width: 157
+        height: 296
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71c7a4e2bee9c4044b4ff47a8d33a5af
-      internalID: 306908604
+      spriteID: c85387841e9fdd54588bbda005334353
+      internalID: -1277516932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: icicle2_3
       rect:
         serializedVersion: 2
-        x: 410
-        y: 0
-        width: 42
-        height: 70
+        x: 908
+        y: 232
+        width: 133
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40f66a9d21a56d540bae01f7f7f96ec7
-      internalID: 195284921
+      spriteID: 356f5f937a6a04f4a8dea67d42f489df
+      internalID: -813814858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_4
+      name: icicle2_4
       rect:
         serializedVersion: 2
-        x: 545
-        y: 0
-        width: 37
-        height: 71
+        x: 1173
+        y: 234
+        width: 144
+        height: 303
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a79aa1250c8f04545bc02d8dd65c8edb
-      internalID: -644327138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_5
-      rect:
-        serializedVersion: 2
-        x: 681
-        y: 0
-        width: 31
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dfb76e3e6bd708b4e93ea46dbad25d66
-      internalID: 679842866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_6
-      rect:
-        serializedVersion: 2
-        x: 811
-        y: 0
-        width: 38
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8517085ea0fc7c342a0f4dbe1a2cb564
-      internalID: -1433224727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_7
-      rect:
-        serializedVersion: 2
-        x: 942
-        y: 0
-        width: 30
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cda63184f9f051545b28945fa6a0f1ed
-      internalID: 706469328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_8
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 0
-        width: 23
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ffd69d3f515d7c439cb9904060fa014
-      internalID: -1026483590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_9
-      rect:
-        serializedVersion: 2
-        x: 1198
-        y: 0
-        width: 24
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46b58277864ccf2458eecf9aa2ffa43b
-      internalID: 1335009439
+      spriteID: bf0c39bac55e910499dae36eb18aa08c
+      internalID: 928946845
       vertices: []
       indices: 
       edges: []
@@ -369,16 +264,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_0: -387308418
-      Walk_1: 513213269
-      Walk_2: 306908604
-      Walk_3: 195284921
-      Walk_4: -644327138
-      Walk_5: 679842866
-      Walk_6: -1433224727
-      Walk_7: 706469328
-      Walk_8: -1026483590
-      Walk_9: 1335009439
+      icicle2_0: 1324279680
+      icicle2_1: 1217257358
+      icicle2_2: -1277516932
+      icicle2_3: -813814858
+      icicle2_4: 928946845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

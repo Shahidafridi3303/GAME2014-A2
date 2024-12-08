@@ -23,7 +23,7 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
     void Start()
     {
         playerDetection = GetComponentInChildren<PlayerDetection>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,9 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
         {
             ChangeDirection();
         }
-        //animator.SetInteger("State", (int)AnimationStates.IDLE);
+
+        animator.SetInteger("State", (int)AnimationStates.IDLE);
+        
         if (bIsGrounded && !playerDetection.GetLOSStatus())
         {
             Move();
@@ -51,7 +53,7 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
 
     private void Move()
     {
-        //animator.SetInteger("State", (int)AnimationStates.RUN);
+        animator.SetInteger("State", (int)AnimationStates.RUN);
         transform.position += Vector3.left * transform.localScale.x * speed;
     }
 
@@ -70,6 +72,4 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
         Debug.DrawLine(baseCenterPoint.position, baseCenterPoint.position + Vector3.down * groundCheckDistance);
         Debug.DrawLine(baseCenterPoint.position, frontGroundPoint.position);
     }
-
-    
 }
