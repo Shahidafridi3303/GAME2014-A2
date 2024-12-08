@@ -43,8 +43,11 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
             ChangeDirection();
         }
 
-        animator.SetInteger("State", (int)AnimationStates.IDLE);
-        
+        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f && !playerDetection.GetSensingStatus())
+        {
+            animator.SetInteger("State", (int)AnimationStates.IDLE);
+        }
+
         if (bIsGrounded && !playerDetection.GetLOSStatus())
         {
             Move();

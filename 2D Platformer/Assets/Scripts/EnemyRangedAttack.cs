@@ -9,22 +9,26 @@ public class EnemyRangedAttack : MonoBehaviour
 
     private PlayerDetection playerDetection;
     private bool bHasLOS;
+    private bool bIsInSensingRange;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         playerDetection = GetComponentInChildren<PlayerDetection>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         bHasLOS = playerDetection.GetLOSStatus();
+        bIsInSensingRange = playerDetection.GetSensingStatus();
     }
 
     private void FixedUpdate()
     {
-        if (bHasLOS && Time.frameCount % fireDelay == 0)
+        if (bHasLOS && bIsInSensingRange && Time.frameCount % fireDelay == 0)
         {
             FireRangedAttack();
         }
@@ -33,6 +37,6 @@ public class EnemyRangedAttack : MonoBehaviour
     public void FireRangedAttack()
     {
         GameObject bullet = Instantiate(bulletGameObject, transform.position, Quaternion.identity);
-
+        animator.SetInteger("State", (int)AnimationStates.ATTACK);
     }
 }

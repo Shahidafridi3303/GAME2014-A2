@@ -9,7 +9,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool bIsInSensingRange = false;
     private GameObject playerGameObject;
     private Rigidbody2D rigidbody2D;
-    [SerializeField] private float movementTimer = 0.0f;
+    private float movementTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()

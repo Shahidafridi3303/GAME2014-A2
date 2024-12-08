@@ -1762,11 +1762,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 194.91026, y: 27.222454}
+    - - {x: 239.63686, y: 30.681969}
       - {x: -107.73512, y: 25.854683}
       - {x: -107.041824, y: -44.053814}
-      - {x: 193.60547, y: -41.034756}
-      - {x: 199.58687, y: -7.966015}
+      - {x: 239.32047, y: -40.787647}
+      - {x: 241.10106, y: -10.931309}
   m_UseDelaunayMesh: 0
 --- !u!1 &153737139
 GameObject:
@@ -6531,12 +6531,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe81dc46f82f3446ad12680f2bf912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementTimer: 0
 --- !u!4 &663072814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2188024865298432100, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
   m_PrefabInstance: {fileID: 8994371144335013813}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &663072820
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663072801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 933c8e28a606c9749ab21e823d396fa9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &664024192
 GameObject:
   m_ObjectHideFlags: 0
@@ -12935,6 +12955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IcyStatic Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8312192187029436064, guid: 66d5e31f16bc35840a82d1a1627c84d2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13933,6 +13957,10 @@ PrefabInstance:
     - target: {fileID: 2022347848043072489, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
       propertyPath: m_Name
       value: IcyStatic Platform2  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022347848043072489, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5017549307993744231, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
       propertyPath: m_LocalScale.x
@@ -17818,6 +17846,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 893536240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1643721759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4995694951698608797, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+  m_PrefabInstance: {fileID: 218938920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1655210392
 GameObject:
   m_ObjectHideFlags: 0
@@ -19725,6 +19758,10 @@ PrefabInstance:
     - target: {fileID: 2022347848043072489, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
       propertyPath: m_Name
       value: IcyStatic Platform2  (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022347848043072489, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5017549307993744231, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22739,16 +22776,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1095.5
+      value: -982.1
       objectReference: {fileID: 0}
     - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -85
+      value: -49.4
       objectReference: {fileID: 0}
     - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 104.3833
+      value: 123.313896
       objectReference: {fileID: 0}
     - target: {fileID: 3468758804058362746, guid: f44e08af70b436249a86854a14ab9a57, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22834,6 +22883,10 @@ PrefabInstance:
     - target: {fileID: 8312192187029436064, guid: 66d5e31f16bc35840a82d1a1627c84d2, type: 3}
       propertyPath: m_Name
       value: IcyStatic Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312192187029436064, guid: 66d5e31f16bc35840a82d1a1627c84d2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22974,6 +23027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'IcyStatic Platform2 '
       objectReference: {fileID: 0}
+    - target: {fileID: 2022347848043072489, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5017549307993744231, guid: 075bfcb20db73d448bb44ed62eeb8aec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143.09
@@ -23032,16 +23089,28 @@ PrefabInstance:
       value: Particle Snow Fore
       objectReference: {fileID: 0}
     - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1095.5
+      value: -982.1
       objectReference: {fileID: 0}
     - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -85
+      value: -49.4
       objectReference: {fileID: 0}
     - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.1
+      value: -7.9
       objectReference: {fileID: 0}
     - target: {fileID: 6654714003194318360, guid: 352cbe7328887b241ba9d05aab780a39, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23189,6 +23258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IcyCrumbling Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 8455639322690257314, guid: 2598a5b6462189047a51c5fb0d77b0e1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23303,6 +23376,7 @@ MonoBehaviour:
   moveSpeed: 0
   bounceForce: 0
   collapseDelay: 3
+  resetDelay: 3
   swingSpeed: 2
   swingAngle: 30
 --- !u!1001 &5344496106847377489
@@ -23672,6 +23746,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.7440002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 255.06
       objectReference: {fileID: 0}
@@ -23711,14 +23797,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1519816515218393289, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
     - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: verticalForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: iceWallGameObject
       value: 
       objectReference: {fileID: 7045279246908329649, guid: 82a185503f3b75942a99a5d4eaf31140, type: 3}
+    - target: {fileID: 7471887411862148721, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1643721759}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23779,6 +23877,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 595600420}
+    - target: {fileID: 4707241109445428343, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
+      propertyPath: speed
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 6035873241980443279, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
       propertyPath: m_Name
       value: Enemy_HellHound2Headed
@@ -23790,6 +23892,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6035873241980443279, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
       insertIndex: -1
       addedObject: {fileID: 663072808}
+    - targetCorrespondingSourceObject: {fileID: 6035873241980443279, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 663072820}
   m_SourcePrefab: {fileID: 100100000, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
