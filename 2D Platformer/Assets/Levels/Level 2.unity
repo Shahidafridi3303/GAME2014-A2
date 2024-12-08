@@ -14489,6 +14489,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.75, y: 4.1875}
   m_Direction: 0
+--- !u!95 &1337961603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337961595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f255778b2ef64d349b8e502db98fad05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1344261391
 GameObject:
   m_ObjectHideFlags: 0
@@ -23509,6 +23530,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3687453069089937796, guid: e2c9b72401d924b4c9e6f221ad46b7ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1337961602}
+    - targetCorrespondingSourceObject: {fileID: 3687453069089937796, guid: e2c9b72401d924b4c9e6f221ad46b7ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1337961603}
     - targetCorrespondingSourceObject: {fileID: 6283747205536984127, guid: e2c9b72401d924b4c9e6f221ad46b7ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 399507581}
