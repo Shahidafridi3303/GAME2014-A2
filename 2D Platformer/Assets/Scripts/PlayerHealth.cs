@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject healthBar; // The health bar UI
     [SerializeField] private float damageCooldown = 1f; // Time in seconds between damage
     [SerializeField] private float healthBarSmoothSpeed = 2f; // Speed of smooth health bar update
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
     private bool canTakeDamage = true; // Cooldown flag
     DeadPlane deadPlane;
 

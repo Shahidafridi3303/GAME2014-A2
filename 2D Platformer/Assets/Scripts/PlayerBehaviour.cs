@@ -37,7 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
     private bool isAttacking = false;
-    private bool bIsBlocking = false;
+    public bool bIsBlocking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
@@ -102,6 +102,7 @@ public class PlayerBehaviour : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>()?.TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyBehaviour>()?.TakeDamage(attackDamage);
         }
 
         // Reset attack state after animation

@@ -68,10 +68,14 @@ public class BulletBehaviour : MonoBehaviour, IDamage
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            if (collision.gameObject.GetComponent<PlayerBehaviour>().bIsBlocking == false)
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }
             DestroyBullet();
         }
     }
