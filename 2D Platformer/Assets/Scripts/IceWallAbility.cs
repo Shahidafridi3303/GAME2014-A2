@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IceWallAbility : MonoBehaviour, IDamage
 {
@@ -12,6 +13,7 @@ public class IceWallAbility : MonoBehaviour, IDamage
     [SerializeField] private int currentHealth;
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private int damage;
+    [SerializeField] private Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +42,29 @@ public class IceWallAbility : MonoBehaviour, IDamage
         return damage;
     }
 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            DestroyWall();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyProjectile"))
         {
             Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(damage);
+            this.TakeDamage(collision.gameObject.GetComponent<EnemyBehaviour>().Damage());
         }
     }
 }

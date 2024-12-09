@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -19,17 +21,14 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Joystick Settings")] [SerializeField] [Range(0, 1.0f)]
     private float leftJoystickVerticalThreshold; // for joystick jump
 
-    [Header("Animation Settings")] private Animator animator;
+    [Header("Animation Settings")] 
+    private Animator animator;
 
-    private enum AnimationStates
-    {
-        IDLE,
-        RUN,
-        JUMP,
-        FALL
-    }
-    //private float deathlyFallSpeed = 5.0f;
-
+    [Header("Buttons for Player Actions/Attacks")] 
+    [SerializeField] private Button iceWallAbilityButton;
+    [SerializeField] private Button blockButton;
+    [SerializeField] private Button AttackButton;
+    
     [Header("UI and Joystick")] private Joystick leftJoystick;
 
     [Header("Attack Settings")] [SerializeField]
@@ -38,16 +37,21 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
     private bool isAttacking = false;
+    public bool bIsBlocking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
 
     [SerializeField] private GameObject iceWallGameObject;
+    private BoxCollider2D blockingBoxCollider2D;
+    
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        blockingBoxCollider2D = GetComponent<BoxCollider2D>();
+        blockingBoxCollider2D.enabled = false;
 
         if (GameObject.Find("GameUIPanel"))
         {
@@ -57,17 +61,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!transform.GetComponent<SpriteRenderer>().flipX)
-            {
-                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if (!transform.GetComponent<SpriteRenderer>().flipX)
+        //    {
+        //        Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
+        //    }
+        //    else
+        //    {
+        //        Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
+        //    }
+        //}
     }
 
     void FixedUpdate()
@@ -88,16 +92,17 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void Attack()
+    public void Attack()
     {
         isAttacking = true;
-        animator.SetBool("isAttacking", true);
+        animator.SetBool("IsAttacking", isAttacking);
 
         // Detect enemies within range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>()?.TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyBehaviour>()?.TakeDamage(attackDamage);
         }
 
         // Reset attack state after animation
@@ -107,7 +112,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void ResetAttack()
     {
         isAttacking = false;
-        animator.SetBool("isAttacking", false);
+        animator.SetBool("IsAttacking", isAttacking);
     }
 
     private void OnDrawGizmosSelected()
@@ -218,6 +223,34 @@ public class PlayerBehaviour : MonoBehaviour
             // Apply damage from the enemy
             //collision.GetComponent<Enemy>().TakeDamage(10);
             GetComponent<PlayerHealth>().TakeDamage(10);
+        }
+    }
+
+    public void IceWallAbility()
+    {
+        if (!transform.GetComponent<SpriteRenderer>().flipX)
+        {
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 1, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 1, 0), Quaternion.identity);
+        }
+    }
+
+    public void Block()
+    {
+        bIsBlocking = !bIsBlocking;
+        animator.SetBool("IsBlocking", bIsBlocking);
+        if (bIsBlocking)
+        {
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            blockingBoxCollider2D.enabled = true;
+        }
+        else if (!bIsBlocking)
+        {
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            blockingBoxCollider2D.enabled = false;
         }
     }
 }
