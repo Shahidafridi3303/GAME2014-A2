@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     [Header("Sound Clips")]
     [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private AudioClip enemyAttackSound;
+    [SerializeField] private AudioClip IceWallAbilitySound;
+    [SerializeField] private AudioClip BlockAbilitySound;
     [SerializeField] private AudioClip playerJumpSound;
     [SerializeField] private AudioClip playerHurtSound;
     [SerializeField] private AudioClip enemyDeathSound;
@@ -45,6 +47,8 @@ public class SoundManager : MonoBehaviour
     // Project-Specific Sound Playback Methods
     public void PlayCoinPickupSound() => PlaySound(coinPickupSound);
     public void PlayEnemyAttackSound() => PlaySound(enemyAttackSound);
+    public void PlayIceWallAbilitySound() => PlaySound(IceWallAbilitySound);
+    public void PlayBlockAbilitySound() => PlaySound(BlockAbilitySound);
     public void PlayPlayerJumpSound() => PlaySound(playerJumpSound);
     public void PlayPlayerHurtSound() => PlaySound(playerHurtSound);
     public void PlayEnemyDeathSound() => PlaySound(enemyDeathSound);

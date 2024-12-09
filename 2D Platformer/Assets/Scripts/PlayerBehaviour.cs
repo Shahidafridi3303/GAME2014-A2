@@ -203,7 +203,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (jumpPressed > leftJoystickVerticalThreshold && bIsGrounded)
         {
             rigidBody2D.AddForce(Vector2.up * verticalForce, ForceMode2D.Impulse);
-            //SoundManager.instance.PlayPlayerJumpSound();
+            SoundManager.instance.PlayPlayerJumpSound();
         }
     }
 
@@ -236,6 +236,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 1, 0), Quaternion.identity);
         }
+
+        SoundManager.instance.PlayIceWallAbilitySound();
     }
 
     public void Block()
@@ -244,6 +246,8 @@ public class PlayerBehaviour : MonoBehaviour
         animator.SetBool("IsBlocking", bIsBlocking);
         if (bIsBlocking)
         {
+            SoundManager.instance.PlayBlockAbilitySound();
+
             rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             blockingBoxCollider2D.enabled = true;
         }

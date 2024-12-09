@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4119901030263867588}
   - component: {fileID: 7471887411862148721}
   - component: {fileID: 4906469875736882186}
-  - component: {fileID: 7639340288355371794}
+  - component: {fileID: 6765375598760633297}
+  - component: {fileID: 2179487836814781002}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45.48, y: -85.06, z: 0}
-  m_LocalScale: {x: 1.766627, y: 2.1199524, z: 1.766627}
+  m_LocalScale: {x: 3.12, y: 3.7440002, z: 3.12}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1253245698725806472}
@@ -168,6 +169,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   damageCooldown: 1
   healthBarSmoothSpeed: 2
+  currentHealth: 0
 --- !u!114 &4906469875736882186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,17 +187,22 @@ MonoBehaviour:
   horizontalSpeedLimit: 8
   airSpeedFactor: 0.8
   groundingTransformPoint: {fileID: 1253245698725806472}
-  groundingRadius: 0.21
+  groundingRadius: 1.08
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 192
   leftJoystickVerticalThreshold: 0.7
-  attackRange: 1.5
+  iceWallAbilityButton: {fileID: 0}
+  blockButton: {fileID: 0}
+  AttackButton: {fileID: 0}
+  attackRange: 6.36
   attackDamage: 20
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
---- !u!95 &7639340288355371794
+    m_Bits: 512
+  bIsBlocking: 0
+  iceWallGameObject: {fileID: 7045279246908329649, guid: 82a185503f3b75942a99a5d4eaf31140, type: 3}
+--- !u!95 &6765375598760633297
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -216,6 +223,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &2179487836814781002
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913743662302457199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.052264333, y: 0.6848026}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.125, y: 1.71875}
+    newSize: {x: 3.125, y: 1.71875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4345903, y: 1.3286008}
+  m_EdgeRadius: 0
 --- !u!1 &7179215238616560736
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 7179215238616560736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.073, y: 0.089, z: 0}
+  m_LocalPosition: {x: -0.073, y: 0.291, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
