@@ -4815,7 +4815,7 @@ Transform:
   m_GameObject: {fileID: 472162682}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 206.93472, y: 5.2015, z: -9.679303}
+  m_LocalPosition: {x: -53.157185, y: -12.200348, z: -9.679303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15281,7 +15281,7 @@ Transform:
   m_GameObject: {fileID: 928158044}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 206.93472, y: 5.2015, z: -9.679303}
+  m_LocalPosition: {x: -97.26529, y: -12.2985, z: -9.679303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29020,11 +29020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 319.2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -77.5
+      value: -95
       objectReference: {fileID: 0}
     - target: {fileID: 1246677479237586708, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29176,6 +29176,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 595600420}
+    - target: {fileID: 4707241109445428343, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
+      propertyPath: maxHealth
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707241109445428343, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
+      propertyPath: currentHealth
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 6035873241980443279, guid: 798f94f73db4c1d4e88abb7538733416, type: 3}
       propertyPath: m_Name
       value: Enemy_HellHound2Headed

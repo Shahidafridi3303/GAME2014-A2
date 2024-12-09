@@ -230,11 +230,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (!transform.GetComponent<SpriteRenderer>().flipX)
         {
-            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 0, 0), Quaternion.identity);
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x + 3, 1, 0), Quaternion.identity);
         }
         else
         {
-            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 0, 0), Quaternion.identity);
+            Instantiate(iceWallGameObject, transform.position + new Vector3(transform.forward.x - 3, 1, 0), Quaternion.identity);
         }
     }
 
