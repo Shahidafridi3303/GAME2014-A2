@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -25,16 +26,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Buttons for Player Actions/Attacks")] 
     [SerializeField] private Button iceWallAbilityButton;
-
-    private enum AnimationStates
-    {
-        IDLE,
-        RUN,
-        JUMP,
-        FALL
-    }
-    //private float deathlyFallSpeed = 5.0f;
-
+    [SerializeField] private Button blockButton;
+    private bool bIsBlocking = false;
+    private BoxCollider2D blockingBoxCollider2D;
+    
     [Header("UI and Joystick")] private Joystick leftJoystick;
 
     [Header("Attack Settings")] [SerializeField]
@@ -48,11 +43,14 @@ public class PlayerBehaviour : MonoBehaviour
     private bool bIsGrounded;
 
     [SerializeField] private GameObject iceWallGameObject;
+    
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        blockingBoxCollider2D = GetComponent<BoxCollider2D>();
+        blockingBoxCollider2D.enabled = false;
 
         if (GameObject.Find("GameUIPanel"))
         {
@@ -238,5 +236,19 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-
+    public void Block()
+    {
+        bIsBlocking = !bIsBlocking;
+        animator.SetBool("IsBlocking", bIsBlocking);
+        if (bIsBlocking)
+        {
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            blockingBoxCollider2D.enabled = true;
+        }
+        else if (!bIsBlocking)
+        {
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            blockingBoxCollider2D.enabled = false;
+        }
+    }
 }
