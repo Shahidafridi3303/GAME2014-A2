@@ -23712,6 +23712,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 649631610}
     - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: AttackButton
+      value: 
+      objectReference: {fileID: 532271264}
+    - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: verticalForce
       value: 7.5
       objectReference: {fileID: 0}
@@ -23723,6 +23727,10 @@ PrefabInstance:
       propertyPath: iceWallGameObject
       value: 
       objectReference: {fileID: 7045279246908329649, guid: 82a185503f3b75942a99a5d4eaf31140, type: 3}
+    - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: iceWallAbilityButton
+      value: 
+      objectReference: {fileID: 600973767}
     - target: {fileID: 7471887411862148721, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: healthBar
       value: 

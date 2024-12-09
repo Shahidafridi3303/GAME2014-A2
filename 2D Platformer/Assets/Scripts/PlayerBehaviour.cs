@@ -27,8 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Buttons for Player Actions/Attacks")] 
     [SerializeField] private Button iceWallAbilityButton;
     [SerializeField] private Button blockButton;
-    private bool bIsBlocking = false;
-    private BoxCollider2D blockingBoxCollider2D;
+    [SerializeField] private Button AttackButton;
     
     [Header("UI and Joystick")] private Joystick leftJoystick;
 
@@ -38,11 +37,13 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private int attackDamage = 20; // Damage dealt by the attack
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to detect
     private bool isAttacking = false;
+    private bool bIsBlocking = false;
 
     private Rigidbody2D rigidBody2D;
     private bool bIsGrounded;
 
     [SerializeField] private GameObject iceWallGameObject;
+    private BoxCollider2D blockingBoxCollider2D;
     
 
     void Start()
@@ -94,7 +95,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void Attack()
     {
         isAttacking = true;
-        animator.SetBool("isAttacking", true);
+        animator.SetBool("IsAttacking", isAttacking);
 
         // Detect enemies within range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
@@ -110,7 +111,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void ResetAttack()
     {
         isAttacking = false;
-        animator.SetBool("isAttacking", false);
+        animator.SetBool("IsAttacking", isAttacking);
     }
 
     private void OnDrawGizmosSelected()
