@@ -47,6 +47,16 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Function to load the next scene
     public void NextScene()
     {

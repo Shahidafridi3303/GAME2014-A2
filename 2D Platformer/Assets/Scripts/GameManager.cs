@@ -10,21 +10,23 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI coinsText; 
 
-    private int totalCoins = 0;
+    public int totalCoins = 0;
 
     void OnEnable()
     {
-        Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // called third
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
         coinsText = GameObject.Find("Score UI").GetComponent<TextMeshProUGUI>();
         coinsText.text = $"Coins: {totalCoins}";
+    }
+
+    public int TotalCoins
+    {
+        get { return totalCoins; }
     }
 
     void OnDisable()

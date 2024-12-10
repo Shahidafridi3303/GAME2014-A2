@@ -1,26 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for scene loading
+using UnityEngine.SceneManagement;
 
 public class LoadNextLevel : MonoBehaviour
 {
+    [SerializeField] private GameObject EndgameScreen;
+    [SerializeField] private AudioClip endgameMusic;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private AudioSource audioSource;
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = endgameMusic;
+        audioSource.loop = false;
+        audioSource.playOnAwake = false;
+
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the object entering the trigger is the player
         if (other.CompareTag("Player"))
         {
-            // Load the next scene in the build settings
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-            // Ensure the next scene index is valid
             if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
             {
                 SceneManager.LoadScene(nextSceneIndex);
             }
             else
             {
-                Debug.Log("No more levels to load. This is the last level.");
+                EndgameScreen.SetActive(true);
+                audioSource.Play();
+                scoreText.text = $"Score: {gameManager.TotalCoins}";
             }
         }
     }
