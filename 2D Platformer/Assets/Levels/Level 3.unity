@@ -6527,6 +6527,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &513799085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 672266893462877145, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+  m_PrefabInstance: {fileID: 1246706250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &531080221
 GameObject:
   m_ObjectHideFlags: 0
@@ -23458,7 +23463,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1253245698725806472, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471887411862148721, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 513799085}
+    m_RemovedComponents:
+    - {fileID: 8490100954425015405, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

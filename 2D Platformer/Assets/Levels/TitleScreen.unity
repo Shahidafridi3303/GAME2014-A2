@@ -44671,10 +44671,10 @@ MonoBehaviour:
     Attack:
     Tap the attack button.
 
-    Roll: Swipe down to evade attacks.
+    Shield: Tab Shield button.
 
-    Activate
-    Shard Power: Tap the shard power button to use unique abilities.'
+    Activate Shard Power:
+    Tap the shard power button to use unique abilities.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0d91ff6e7159424ab85dddd712ba220, type: 2}
   m_sharedMaterial: {fileID: 1390719941560601979, guid: c0d91ff6e7159424ab85dddd712ba220, type: 2}

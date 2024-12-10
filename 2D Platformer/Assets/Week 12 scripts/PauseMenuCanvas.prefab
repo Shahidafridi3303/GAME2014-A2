@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 4048095163022388855}
   - component: {fileID: 4274440472224993029}
   - component: {fileID: 4446898253834850609}
-  - component: {fileID: 7182007249602999810}
+  - component: {fileID: 8847492327666362077}
   m_Layer: 5
   m_Name: ShieldBlockButton
   m_TagString: Untagged
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7182007249602999810
+--- !u!114 &8847492327666362077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 1819327491484533566}
   - component: {fileID: 5416057893212537280}
   - component: {fileID: 3629107134989277424}
-  - component: {fileID: 3443781689908019269}
+  - component: {fileID: 5024015654509698735}
   m_Layer: 5
   m_Name: PlayerAttackButton
   m_TagString: Untagged
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3443781689908019269
+--- !u!114 &5024015654509698735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 1411715283575735851}
   - component: {fileID: 8856839043452858496}
   - component: {fileID: 1275160618680925968}
-  - component: {fileID: 1697939569889414329}
+  - component: {fileID: 8999011819913499554}
   m_Layer: 5
   m_Name: IceWallAbilityButton
   m_TagString: Untagged
@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1697939569889414329
+--- !u!114 &8999011819913499554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
