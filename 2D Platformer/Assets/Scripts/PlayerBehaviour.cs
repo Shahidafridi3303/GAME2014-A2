@@ -88,6 +88,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && !isAttacking) // Replace "Fire1" with your input setup
         {
+            SoundManager.instance.PlayPlayerAttackSound();
             Attack();
         }
     }
@@ -96,7 +97,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         isAttacking = true;
         animator.SetBool("IsAttacking", isAttacking);
-
         // Detect enemies within range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
@@ -203,7 +203,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (jumpPressed > leftJoystickVerticalThreshold && bIsGrounded)
         {
             rigidBody2D.AddForce(Vector2.up * verticalForce, ForceMode2D.Impulse);
-            //SoundManager.instance.PlayPlayerJumpSound();
+            SoundManager.instance.PlayPlayerJumpSound();
         }
     }
 
@@ -223,6 +223,7 @@ public class PlayerBehaviour : MonoBehaviour
             // Apply damage from the enemy
             //collision.GetComponent<Enemy>().TakeDamage(10);
             GetComponent<PlayerHealth>().TakeDamage(10);
+            SoundManager.instance.PlayEnemyAttackSound();
         }
     }
 
