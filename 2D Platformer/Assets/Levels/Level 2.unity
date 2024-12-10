@@ -4813,7 +4813,7 @@ Transform:
   m_GameObject: {fileID: 472162682}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.066704, y: -9.305176, z: -9.679303}
+  m_LocalPosition: {x: -55.476074, y: -9.305847, z: -9.679303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21996,6 +21996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 218938921}
+  totalCoins: 0
 --- !u!4 &1568173093
 Transform:
   m_ObjectHideFlags: 0
@@ -26729,6 +26730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f821d8c79e14445b50766d3148711b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndgameScreen: {fileID: 0}
+  endgameMusic: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!4 &2011310245
 Transform:
   m_ObjectHideFlags: 0
@@ -29176,6 +29180,10 @@ PrefabInstance:
       propertyPath: AttackButton
       value: 
       objectReference: {fileID: 532271264}
+    - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
+      propertyPath: verticalForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4906469875736882186, guid: d42a6275204bf5d4c89eeddf7dda02d3, type: 3}
       propertyPath: iceWallAbilityButton
       value: 

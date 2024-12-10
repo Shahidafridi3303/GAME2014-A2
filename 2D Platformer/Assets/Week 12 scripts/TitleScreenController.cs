@@ -5,22 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenController : MonoBehaviour
 {
-    public GameObject mainMenuPanel; // Panel for the main menu
-    public GameObject instructionsPanel; // Panel for the instructions screen
-    public AudioSource audioSource; // AudioSource for playing sound effects
-    public AudioClip clickSound; // Click sound effect
+    public GameObject mainMenuPanel;
+    public GameObject instructionsPanel; 
+    public AudioSource audioSource;
+    public AudioClip clickSound; 
 
     void Start()
     {
-        // Ensure the correct panels are visible or hidden at the start
         if (mainMenuPanel != null)
         {
-            mainMenuPanel.SetActive(true); // Show main menu panel
+            mainMenuPanel.SetActive(true);
         }
 
         if (instructionsPanel != null)
         {
-            instructionsPanel.SetActive(false); // Hide instructions panel
+            instructionsPanel.SetActive(false); 
         }
 
         Debug.Log("Title Screen Loaded");
@@ -34,8 +33,6 @@ public class TitleScreenController : MonoBehaviour
             audioSource.PlayOneShot(clickSound);
         }
     }
-
-    // Function to start the game
     public void PlayGame()
     {
         PlayClickSound();
