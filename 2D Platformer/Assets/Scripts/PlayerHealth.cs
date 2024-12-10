@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Prevent health going below 0
 
+        SoundManager.instance.PlayPlayerHurtSound();
+
         // Smoothly update health bar
         float healthNormalized = (float)currentHealth / maxHealth;
         StartCoroutine(UpdateHealthBarSmooth(healthNormalized));

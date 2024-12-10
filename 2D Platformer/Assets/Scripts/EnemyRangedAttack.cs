@@ -31,6 +31,7 @@ public class EnemyRangedAttack : MonoBehaviour
     {
         if (bHasLOS && bIsInSensingRange && Time.frameCount % fireDelay == 0)
         {
+            SoundManager.instance.PlayEnemyAttackSound();
             FireRangedAttack();
         }
     }

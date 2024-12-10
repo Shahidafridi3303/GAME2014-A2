@@ -23,6 +23,7 @@ public class DeadPlane : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.transform.position = _spawnPosition;
+            SoundManager.instance.PlayPlayerDeathSound();
         }
     }
 

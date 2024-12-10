@@ -96,9 +96,12 @@ public class EnemyBehaviour : MonoBehaviour, IDamage
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.value = currentHealth;
 
+        
+
         if (currentHealth <= 0)
         {
             Die();
+            SoundManager.instance.PlayEnemyDeathSound();
         }
     }
 

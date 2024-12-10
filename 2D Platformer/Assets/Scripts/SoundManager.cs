@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private AudioClip enemyAttackSound;
     [SerializeField] private AudioClip playerJumpSound;
+    [SerializeField] private AudioClip playerAttackSound;
     [SerializeField] private AudioClip playerHurtSound;
     [SerializeField] private AudioClip enemyDeathSound;
     [SerializeField] private AudioClip playerDeathSound;
@@ -47,6 +48,7 @@ public class SoundManager : MonoBehaviour
     public void PlayEnemyAttackSound() => PlaySound(enemyAttackSound);
     public void PlayPlayerJumpSound() => PlaySound(playerJumpSound);
     public void PlayPlayerHurtSound() => PlaySound(playerHurtSound);
+    public void PlayPlayerAttackSound() => PlaySound(playerAttackSound);
     public void PlayEnemyDeathSound() => PlaySound(enemyDeathSound);
     public void PlayPlayerDeathSound() => PlaySound(playerDeathSound);
     public void PlayButtonClickSound() => PlaySound(buttonClickSound);
