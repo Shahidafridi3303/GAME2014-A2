@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -9,7 +10,28 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI coinsText; 
 
-    private int totalCoins = 0; 
+    private int totalCoins = 0;
+
+    void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called third
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+        coinsText = GameObject.Find("Score UI").GetComponent<TextMeshProUGUI>();
+        coinsText.text = $"Coins: {totalCoins}";
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     private void Awake()
     {
