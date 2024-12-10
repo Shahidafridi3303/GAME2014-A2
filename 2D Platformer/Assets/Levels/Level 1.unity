@@ -16438,7 +16438,7 @@ Transform:
   m_GameObject: {fileID: 470573438715322528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 144.94821, y: -15.047791, z: -9.812874}
+  m_LocalPosition: {x: 144.96803, y: -15.047638, z: -9.812874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16869,6 +16869,18 @@ PrefabInstance:
     - target: {fileID: 2766481133942239810, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446898253834850609, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446898253834850609, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446898253834850609, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6145500259113122833, guid: bb0b8aa7c96d34341a3c06efe6657513, type: 3}
       propertyPath: m_Volume
